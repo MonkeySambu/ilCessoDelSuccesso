@@ -17,11 +17,21 @@
         label{
             font-size: x-large;
         }
+        .rosso{
+            border: 2px red solid;
+            color: red;
+        }
+        #err{
+            visibility: hide;
+            color: red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/JavaScript/script.js"></script>
+    <link rel="stylesheet" href="/Css/login.css">
     <title>Il Cesso del SucCesso</title>
+    <script src="/JavaScript/JQuery/jquery-3.7.1.slim.js"></script>
+    <script src="/JavaScript/login.js"></script>
 </head>
     <body>
         <div>
@@ -34,12 +44,10 @@
                 <label>Password</label>
                 <input type="password" id="pass">
                 <br>
+                <label id="err">"Username o Password ERRATI"</label>
                 <br>
-                <input type="button" id="invia" onclick="controlloLogin()" value="Accedi">
+                <input type="button" id="invia" value="Accedi">
             </form>
         </div>
     </body>
-<script>
-
-</script>
 </html>
