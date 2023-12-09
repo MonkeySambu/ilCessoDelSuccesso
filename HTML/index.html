@@ -1,31 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <style>
-        div{
-            border: solid black 3px;
-            border-radius: 10px;
-            color: black;
-            width: 480px;
-            margin: auto;
-            text-align: center;
-        }
-        form{
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        label{
-            font-size: x-large;
-        }
-        .rosso{
-            border: 2px red solid;
-            color: red;
-        }
-        #err{
-            visibility: hide;
-            color: red;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Css/login.css">
@@ -45,7 +20,8 @@
                 <input type="password" id="pass">
                 <br>
                 <label id="err">"Username o Password ERRATI"</label>
-                <br>
+                <div id="spazio">
+                </div>
                 <input type="button" id="invia" value="Accedi">
             </form>
         </div>
