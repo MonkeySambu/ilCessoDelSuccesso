@@ -2,8 +2,7 @@ div{
     border: solid black 3px;
     border-radius: 10px;
     color: black;
-    width: 480px;
-    margin: auto;
+    width: 27rem;
     text-align: center;
 }
 form{
@@ -31,4 +30,10 @@ label{
     border: none;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+body{
+    background: linear-gradient(90deg, rgba(4,161,201,1) 0%, rgba(255,255,255,1));
+}
+label, h2{
+    color: rgb(0, 110, 255);
 }
