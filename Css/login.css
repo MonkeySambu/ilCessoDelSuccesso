@@ -4,6 +4,7 @@ div{
     color: black;
     width: 27rem;
     text-align: center;
+    margin: auto;
 }
 form{
     margin-bottom: 10px;

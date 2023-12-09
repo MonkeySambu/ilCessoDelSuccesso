@@ -10,7 +10,6 @@ $(document).ready(function(){
 })
 
 $(document).ready(function(){
-    
     $("#logout").click(function(){
-        $(location).prop('href', 'index.html')})
+        $(location).prop('href', 'index.html');});
 })
