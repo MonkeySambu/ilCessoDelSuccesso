@@ -1,10 +1,10 @@
-.grid-container {
+/*.grid-container {
     display:grid;
     grid-template-columns: auto auto;
 }
-/*   
+   
 GRIGLA PER IL NEGOZIO E I PRODOTTI
- */
+ 
 .grid-container2{
     display:grid;
     grid-template-columns: auto auto auto;
@@ -12,18 +12,49 @@ GRIGLA PER IL NEGOZIO E I PRODOTTI
     background-color: slateblue;
 }
 .grid-container2 > div {
-
     background-color: rgba(165, 240, 240, 0.736);
 }
-img{
-    width: 25%;
-    height: 25%;
-    grid-column: 1/3;
+*/
+.prod{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 html {
     background-color: rgba(165, 240, 240, 0.736);
 }
 
 div{
     border: 1px solid black
+}
+table{
+    border: 1px solid black
+}
+#tabella{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: 1px solid black;
+}
+
+tr,
+td{
+    border: 1px solid black
+}
+
+#div1{
+    background-color: rgba(102, 255, 0, 0.736);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
