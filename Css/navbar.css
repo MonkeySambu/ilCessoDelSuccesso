@@ -1,14 +1,16 @@
 ul {
     list-style-type: none;
-    
+    background-color: #D9D9D9;
+    mix-blend-mode: hard-light;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    z-index: 0;
   }
   
   li {
     float: right;
+    z-index: 1;
   }
   
   li a {
