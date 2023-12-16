@@ -17,8 +17,7 @@ GRIGLA PER IL NEGOZIO E I PRODOTTI
 */
 .prod{
     width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    translate: translate(50%, -50%);
 }
 
 html {
@@ -32,8 +31,6 @@ table{
     border: 1px solid black
 }
 #tabella{
-    margin-left: auto;
-    margin-right: auto;
     width: 100%;
     border: 1px solid black;
 }
@@ -55,6 +52,4 @@ td{
 
 .container{
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
