@@ -16,7 +16,7 @@ $(document).ready(function(){
             CookiesProdotto.set("prezzo"+i,prezzo,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("quantita"+i,quantita,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("totale"+i,totale,{expires: 1, sameSite: 'strict'});
-
+            console.log("TEST");
             CookiesProdotto.get("foto"+i);
         });
     }
