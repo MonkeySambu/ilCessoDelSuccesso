@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    //MANCANO GLI ID #NOME E #PREZZO E #IMMAGINI A TUTTI//
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesso del SucCesso -shop</title>
@@ -23,6 +26,11 @@
         <div class="div-cont2">    
                     <table class="container">
                         <tr>
+                            <th>Prodotto</th>
+                            <th>Descrizione</th>
+                            <th>Quantità</th>
+                        </tr>
+                        <tr>
                             <td><img src="../Assets/prodotti/bagnoschiuma.png" class="prod"></td>
                             <td>
                                 <div>Bagnoschiuma</div>
@@ -32,7 +40,7 @@
                                 <div>Prezzo: 1.45€</div>
                             </td>
                             <td><form>
-                                <input type="number" name="quantity" min="0" max="25">
+                                <input type="number" name="quantity" min="0" max="25" id="quantita0">
                                 <input type="button" value="Aggiungi al carrello" id="add0"> 
                             </form></td>
                         </tr>
@@ -142,7 +150,7 @@
                             <div> Prezzo: 3.20€ </div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25">
+                            <input type="number" name="quantity" min="0" max="25" id="quantita8">
                             <input type="button" value="Aggiungi al carrello" id="add8"> 
                         </form></td>
                     </tr>
@@ -156,7 +164,7 @@
                             <div> Prezzo: 9.90€ </div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25">
+                            <input type="number" name="quantity" min="0" max="25" id="quantita9">
                             <input type="button" value="Aggiungi al carrello" id="add9"> 
                         </form></td>
                     </tr>           
@@ -170,29 +178,20 @@
                             <div> Prezzo: 10.00€ </div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25">
-                            <input type="button" value="Aggiungi al carrello"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita10">
+                            <input type="button" value="Aggiungi al carrello" id="add10"> 
                         </form></td>
                     </tr>               
                     </table>
         </div>       
         <div id="CARRELLO-PROD" class="div-cont">   
-                    <table class="container">
-                        <tr>
-                            <td><img src="../Assets/prodotti/bagnoschiuma.png" class="prod"></td>
-                            <td>
-                                <div>Bagnoschiuma</div>
-                                <div>
-                                    <div></div>
-                                </div> 
-                                <div>Prezzo: 1.45€</div>
-                            </td>
-                            <td><form>
-                                <input type="number" name="quantity" min="0" max="25">
-                                <input type="button" value="Aggiungi al carrello"> 
-                            </form></td>
-                        </tr>                                                            
-                    </table>
+                <table class="container" id="carrelloso">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th id="totale"></th>
+                    </tr>                                    
+                </table>
         </div>
     </div>
 </body>
