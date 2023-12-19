@@ -9,15 +9,19 @@ $(document).ready(function(){
             var nome=$("#nome"+i).html();
             var prezzo=$("#prezzo"+i).html();
             var quantita=$("#quantita"+i).val();
-            var totale=prezzo*quantita;
+            var subtotale=prezzo*quantita; 
 
             CookiesProdotto.set("foto"+i,foto,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("nome"+i,nome,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("prezzo"+i,prezzo,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("quantita"+i,quantita,{expires: 1, sameSite: 'strict'});
-            CookiesProdotto.set("totale"+i,totale,{expires: 1, sameSite: 'strict'});
-            console.log("TEST"+i);
+            CookiesProdotto.set("subtotale"+i,totale,{expires: 1, sameSite: 'strict'});
+            
             CookiesProdotto.get("foto"+i);
+            CookiesProdotto.get("nome"+i);
+            CookiesProdotto.get("prezzo"+i);
+            CookiesProdotto.get("quantita"+i);
+            CookiesProdotto.get("totale"+i);
         });
     }
 

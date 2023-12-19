@@ -11,4 +11,4 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#logout").click(function(){
         $(location).prop('href', 'index.html');});
-})
+}) 
