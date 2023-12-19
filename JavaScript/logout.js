@@ -1,3 +1,5 @@
+var CookiesNome = Cookies.noConflict();
+
 $(document).ready(function(){
     if(CookiesNome.get("pass") != "true"){
     window.location.replace("index.html");
