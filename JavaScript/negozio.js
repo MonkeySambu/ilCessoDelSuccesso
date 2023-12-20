@@ -1,6 +1,7 @@
 var CookiesProdotto= CookiesNome.noConflict();
-
 var e=0;
+var totale=0;
+
 const PROD=11;
 $(document).ready(function(){
     for (let i = 0; i < PROD; i++){
@@ -9,11 +10,9 @@ $(document).ready(function(){
             var foto=$("#foto"+i).attr("src");
             var nome=$("#nome"+i).text();
             var prezzo=$("#prezzo"+i).text();
-            var quantita=$("#quantita"+i).val();
+            var quantita= parseInt($("#quantita"+i).val());
 
             console.log(quantita);
-            console.log
-
 
             CookiesProdotto.set("foto"+i ,foto,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.set("nome"+i ,nome,{expires: 1, sameSite: 'strict'});
@@ -26,28 +25,31 @@ $(document).ready(function(){
             CookiesProdotto.get("nome"+i);
             CookiesProdotto.get("prezzo"+i);
             CookiesProdotto.get("quantita"+i);
-
-            $("#carrelloso").append("<tr><td>"+CookiesProdotto.get("foto"+i)+"</td><td>"+CookiesProdotto.get("quantita"+i)+"</td></tr>");
+            var immagine = $("<img>").attr("src", CookiesProdotto.get("foto"+i));
+            $("#carrelloso").append("<tr><td>"+immagine+"</td><td>"+CookiesProdotto.get("quantita"+i)+"</td></tr>");
 
             console.log(CookiesProdotto.get("nome"+i));
 
-            var subtotale=parseInt(CookiesProdotto.get("prezzo"+i))*parseInt(CookiesProdotto.get("quantita"+i));
+            var subtotale=parseFloat(CookiesProdotto.get("prezzo"+i))*parseFloat(CookiesProdotto.get("quantita"+i));
+            console.log(subtotale);
             CookiesProdotto.set("subtotale"+i,subtotale,{expires: 1, sameSite: 'strict'});
             CookiesProdotto.get("subtotale"+i);
             console.log(CookiesProdotto.get("subtotale"+i));
 
-            var totale=0;
-            totale+=parseInt(CookiesProdotto.get("subtotale"+i));
-            $("#totale").html("Totale:"+totale+"€");
+            totale += parseFloat(CookiesProdotto.get("subtotale"+i));
+            $("#totale").html("Totale: "+totale+" €");
             });
-        }});
-
-    $("#cart").click(function(){
-        if(e==0){
-            $("#CARRELLO-PROD").show();
-            e=1;
-        }else{
-            $("#CARRELLO-PROD").hide();
-            e=0;
         }
+
+        $("#cart").click(function(){
+            if(e==0){
+                $("#CARRELLO-PROD").show();
+                console.log("test mostra");
+                e=1;
+            }else{
+                $("#CARRELLO-PROD").hide();
+                console.log("test nascondi");
+                e=0;
+            }
+        });
     });

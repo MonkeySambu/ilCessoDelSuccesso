@@ -60,3 +60,8 @@ td{
     width: 100%;
     border : 1px solid rgb(0, 0, 255);
 }
+
+.fianco{
+    width: 0.5rem;
+    display: inline;
+}
