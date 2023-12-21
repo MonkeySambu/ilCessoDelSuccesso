@@ -2,6 +2,10 @@
     display:grid;
     grid-template-columns: auto auto;
 }
+body{
+    margin: 0;
+    padding: 0;
+}
 /*  
 GRIGLA PER IL NEGOZIO E I PRODOTTI
  

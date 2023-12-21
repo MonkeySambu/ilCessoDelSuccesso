@@ -51,8 +51,13 @@ body{
 }
 
 label, h2{
-    color: rgb(255, 255, 255);
+
+    animation: color-change 55s ease infinite;
 }
+@keyframes color-change {
+    0% { color: #ffffff; }
+    100% { color: #000000; }
+  }
 /*
 RGB: 071-075-078
 
