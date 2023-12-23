@@ -31,7 +31,6 @@ function add(id) {
             quantita += parseInt(document.getElementById("quantita"+id).value);
             CookiesProdotto.set("quantita"+id,quantita, {path: "/"}, {sameSite: "strict"}, {expires: 1});
         }
-        quantita = document.getElementById("quantita"+id).value;
         prezzo = document.getElementById("prezzo"+id).innerHTML;
         CookiesProdotto.set("prezzo"+id,prezzo, {path: "/"}, {sameSite: "strict"}, {expires: 1});
         CookiesProdotto.set("img"+id,id+".png", {path: "/"}, {sameSite: "strict"}, {expires: 1});

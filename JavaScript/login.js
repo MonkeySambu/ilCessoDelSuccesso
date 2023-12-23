@@ -8,7 +8,7 @@ if(CookiesNome.get("nome")=="true" && CookiesNome.get("pass")=="true" /*&& log!=
 
 $(document).ready(function(){
     $("#invia").click(function(){
-        if(($("#pass").val()=="Admin1234")&&($("#nome").val()=="ADMIN")){
+        if(($("#pass").val()=="locale")&&($("#nome").val()=="UTENTE")){
 
             CookiesNome.set("nome","true",{expires: 1, sameSite: 'strict'});
             CookiesNome.set("pass","true",{expires: 1,sameSite: 'strict'});

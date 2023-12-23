@@ -18,7 +18,6 @@ $(document).ready(function(){
             var quantita=parseInt($("#quantita"+i).val());
             var subtotale=quantita*prezzo;
             subtotale=parseFloat(subtotale);
-    
             //CONTROLLO IL NUMERO DI ARTICOLI//
             if(quantita==0){
                 alert("Inserire un numero di articoli!!!!!");
@@ -27,7 +26,6 @@ $(document).ready(function(){
                     numProd++;
                     console.log(CookiesProdotto.get("nome"+i));
                 }
-                console.log(numProd);
                 //INSERISCO I COOKIE//
                 if(CookiesProdotto.get("quantita"+i)==null||CookiesProdotto.get("quantita"+i)==undefined){
                     CookiesProdotto.set("quantita"+i ,quantita,{expires: 1, sameSite: 'strict'});
@@ -39,9 +37,7 @@ $(document).ready(function(){
                 CookiesProdotto.set("foto"+i ,foto,{expires: 1, sameSite: 'strict'});
                 CookiesProdotto.set("nome"+i ,nome,{expires: 1, sameSite: 'strict'});
                 CookiesProdotto.set("prezzo"+i ,prezzo,{expires: 1, sameSite: 'strict'});
-                //CookiesProdotto.set("subtotale"+i ,subtotale,{expires: 1, sameSite: 'strict'});
                 CookiesProdotto.set("posArt"+i,i,{expires: 1, sameSite: 'strict'});
-
                 CookiesProdotto.set("numProd",numProd,{expires: 1, sameSite: 'strict'});
                 //CREO LA TABELLA
                 //Elimino la riga//
