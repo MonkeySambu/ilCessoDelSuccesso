@@ -1,10 +1,22 @@
 div{
     border: solid black 3px; 
     border-radius: 10px;
-    color: black;
+    color: black;    
     width: 27rem;
     text-align: center;
     margin: auto;
+}
+header{
+    text-align: center;
+}
+h1{
+    margin-top: 0;
+}
+img{
+    width: 5rem;
+    margin-left: 10px;
+    margin-right:0;
+
 }
 form{
     margin-bottom: 10px;
@@ -26,6 +38,18 @@ label{
     width: 25%;
     border-radius: 0.3125rem;
     font-size: large;
+    background-color: rgba(194, 226, 249, 0.65);
+    color: #0067B1;
+    text-align: center;
+    align-items: center;
+    font-family: Granstander Clean;
+    border: #0067B1 1px solid;
+    border-radius: 0.3125rem;
+}
+
+#invia:hover{
+    background-color: #0067b1b7;
+    color:rgba(194, 226, 249, 0.85) ;
 }
 #spazio{
     border: none;
@@ -34,6 +58,7 @@ label{
 }
 html{
     height: 100%;
+    font-family: Granstander Clean;
 
 }
 body{
@@ -50,22 +75,22 @@ body{
   100% { background-position: 0% 50%; }
 }
 
-label, h2{
-
+label, h2,h1{
     animation: color-change 55s ease infinite;
 }
 @keyframes color-change {
     0% { color: #ffffff; }
     100% { color: #000000; }
   }
-/*
-RGB: 071-075-078
 
-RGB: 130-137-143
-
-RGB: 064-058-058
-
-RGB: 002-086-105
-
-RGB: 234-230-202
-*/
+  input[type=text], input[type=password]{
+    width: 7.625rem;
+    height: 1.4375rem;
+    flex-shrink: 0;
+    background-color: rgba(194, 226, 249, 0.65);
+    font-family: Granstander Clean;
+    text-align: center;
+    align-items: center;
+    border: #0067B1 1px solid;
+    border-radius: 0.3125rem;
+}

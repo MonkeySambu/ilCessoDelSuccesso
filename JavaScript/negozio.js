@@ -1,118 +1,114 @@
 var CookiesProdotto= CookiesNome.noConflict();
-var e=0;
-var numProd=[];
-
-const PROD=11;
+const nPRODTot=10;
+var numProdInCart=0;
+let totale=0;
 
 $(document).ready(function(){
-    for (let i = 0; i < PROD; i++){
-        $("#add"+i).click(function(){
-            numProd=CookiesProdotto.get("numProd");
-            numProd++;
-            // VARIBALILI 
-            var foto=$("#foto"+i).attr("src");
-            var nome=$("#nome"+i).text();
-            var prezzo=$("#prezzo"+i).text();
-            var quantita=parseInt($("#quantita"+i).val());
+    //CONTROLLO SE ESISTONO PRODOTTI NEL CARELLO//
+    if(CookiesProdotto.get("NProdotti")==undefined){
+        CookiesProdotto.set("NProdotti",0, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+        numProdInCart = 0;
+    }else{
+        numProdInCart=CookiesProdotto.get("NProdotti");
+    }
+});
 
-            var check= CookiesProdotto.get("add"+i);
-            var cazzo= CookiesProdotto.get("quantita"+i);
-            console.log(check);
-            console.log(quantita);
-            console.log(cazzo);
-            if(check==true){
-                quantita = ((parseInt(cazzo)*100) + (quantita*100))/100;
-            }
-            console.log(quantita);
-
-            if(quantita==0){
-                alert("Inserire un numero di articoli!!!!!");
-            }else{
-                CookiesProdotto.set("foto"+i ,foto,{expires: 1, sameSite: 'strict'});
-                CookiesProdotto.set("nome"+i ,nome,{expires: 1, sameSite: 'strict'});
-                CookiesProdotto.set("prezzo"+i ,prezzo,{expires: 1, sameSite: 'strict'});
-                CookiesProdotto.set("quantita"+i ,quantita,{expires: 1, sameSite: 'strict'});
-                CookiesProdotto.set("posArt"+i,i,{expires: 1, sameSite: 'strict'});
-
-                CookiesProdotto.set("add"+i,true,{expires: 1, sameSite: 'strict'});
-                
-                var immagine = $("<img>");
-                var img = CookiesProdotto.get("foto"+i);
-                immagine.attr("src", img);
-                immagine.addClass("prod");
-
-
-                var subtotale=parseFloat(CookiesProdotto.get("prezzo"+i))*parseFloat(CookiesProdotto.get("quantita"+i));
-                CookiesProdotto.set("subtotale"+i,subtotale,{expires: 1, sameSite: 'strict'});
-
-                $("#rigaCart"+i).remove();
-                var cella1= $("<td> </td>").append(immagine);
-                var cella2= $("<td> </td>").append("<div>"+CookiesProdotto.get("nome"+i)+"</div>"+"<div class="+"fianco"+">Prezzo x Art: "+CookiesProdotto.get("prezzo"+i)+" €</div>");
-                var cella3= $("<td> </td>").append("<div> Numero Art: "+CookiesProdotto.get("quantita"+i)+"</div>"+"<div class="+"fianco"+">subtotale: "+CookiesProdotto.get("subtotale"+i)+" €"+"</div>"+"<br>"+"<button id='remove"+i+"'>Rimuovi</button>");
-                var riga= $("<tr> </tr>").append(cella1,cella2,cella3).attr("id","rigaCart"+i);
-            
-                $("#carrelloso").prepend(riga);
-                
-                totale += parseFloat(CookiesProdotto.get("subtotale"+i));
-
-                CookiesProdotto.set("totale",totale,{expires: 1, sameSite: 'strict'});
-                $("#totale").html("Totale: "+totale+" €");
-            }
-
-            $("#remove"+i).click(function(){
-                console.log("test remove");
-                $("#rigaCart"+i).remove();
-                CookiesProdotto.set("add"+i,false,{expires: 1, sameSite: 'strict'});
-                CookiesProdotto.remove("foto"+i);
-                CookiesProdotto.remove("nome"+i);
-                CookiesProdotto.remove("prezzo"+i);
-                CookiesProdotto.remove("quantita"+i);
-                CookiesProdotto.remove("subtotale"+i);
-                CookiesProdotto.remove("posArt"+i);
-
-                totale -= parseFloat(CookiesProdotto.get("subtotale"+i));
-                totale = totale.toFixed(2);
-                CookiesProdotto.set("totale",totale,{expires: 1, sameSite: 'strict'});
-                $("#totale").html("Totale: "+totale+" €");
-            });
-
-
-        });
+function add(id) {
+    if($("quantita"+id).val()!=""){
+        if(CookiesProdotto.get("nome"+id)==undefined){
+            numProdInCart++;
+            console.log(numProdInCart);
+            nome = document.getElementById("nome"+id).innerHTML;
+            CookiesProdotto.set("NProdotti",numProdInCart, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+            CookiesProdotto.set("nome"+id,nome, {path: "/"}, {sameSite: "strict"}, {expires: 1});
         }
+        if(CookiesProdotto.get("quantita"+id)==undefined){
+            quantita = document.getElementById("quantita"+id).value;
+            CookiesProdotto.set("quantita"+id,quantita, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+        }else{
+            quantita = parseInt(CookiesProdotto.get("quantita"+id));
+            quantita += parseInt(document.getElementById("quantita"+id).value);
+            CookiesProdotto.set("quantita"+id,quantita, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+        }
+        quantita = document.getElementById("quantita"+id).value;
+        prezzo = document.getElementById("prezzo"+id).innerHTML;
+        CookiesProdotto.set("prezzo"+id,prezzo, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+        CookiesProdotto.set("img"+id,id+".png", {path: "/"}, {sameSite: "strict"}, {expires: 1});
+    }
+}
 
 
-
-        $("#cart").click(function(){
-            if(e==0){
-                $("#CARRELLO-PROD").show();
-                console.log("test mostra");
-                e=1;
-            }else{
-                $("#CARRELLO-PROD").hide();
-                console.log("test nascondi");
-                e=0;
-            }
-        });
-
-        
-    });
-    $("#totale").remove();
 $(document).ready(function(){
-    for (let i = 0; i < PROD; i++){
-                
-        setTimeout(function(){
-            if(CookiesProdotto.get("posArt"+i)==i){
-                var immagine = $("<img>");
-                var img = CookiesProdotto.get("foto"+i);
-                immagine.attr("src", img);
-                immagine.addClass("prod");
-                
-                var cella1= $("<td> </td>").append(immagine);
-                var cella2= $("<td> </td>").append("<div>"+CookiesProdotto.get("nome"+i)+"</div>"+"<div class="+"fianco"+">Prezzo x Art: "+CookiesProdotto.get("prezzo"+i)+" €</div>");
-                var cella3= $("<td> </td>").append("<div> Numero Art: "+CookiesProdotto.get("quantita"+i)+"</div>"+"<div class="+"fianco"+">subtotale: "+CookiesProdotto.get("subtotale"+i)+" €"+"</div>"+"<br>"+"<button id='remove"+i+"'>Rimuovi</button>");
-                var riga= $("<tr> </tr>").append(cella1,cella2,cella3).attr("id","rigaCart"+i);
-                $("#totale").html("Totale: "+CookiesProdotto.get("totale")+" €");
-                $("#carrelloso").prepend(riga);
-                }
-            },1000);
-    }});
+    //Creo il carello al caricamento della pagina//
+    for(var i=0;i<11;i++){
+        let id = i;
+        if(CookiesProdotto.get("nome"+id)!=undefined) {
+            //BR//
+            var br = $("<br>");
+            //immagine//
+            var immagine = $("<img>");
+            var img = CookiesProdotto.get("img"+id);
+            immagine.attr("src", "../Assets/prodotti/"+img);
+            immagine.addClass("prod");
+
+            //bottone//
+            var button =$("<button></button>");
+            button.attr("id","remove"+id);
+            button.text("Rimuovi");
+            button.attr("onclick","remove("+id+")");
+            button.addClass("add");
+            //nome//
+            var nome = $("<div></div>");
+            nome.text(CookiesProdotto.get("nome"+id));
+
+            //prezzo//
+            var prezzo = $("<div></div>");
+            prezzo.text("Prezzo X art: "+CookiesProdotto.get("prezzo"+id)+"€");
+            prezzo.addClass("fianco");
+            
+            //quantita//
+            var quantita = $("<div></div>");
+            quantita.text("Num Articoli: "+CookiesProdotto.get("quantita"+id));
+            //celle//
+                //cella1//
+            var cella1= $("<td></td>").append(immagine);
+                //cella2//
+            var cella2= $("<td></td>").append(nome);
+                //cella3//
+            var cella3= $("<td></td>").append(prezzo);
+                cella3.append(quantita);
+                cella3.append(button);
+            //riga//
+            var riga = $("<tr></tr>");
+                riga.append(cella1);
+                riga.append(cella2);
+                riga.append(cella3);
+                riga.attr("id","rigaCart"+id);
+            //Aggiungo la riga alla tabella//
+            $("#carrelloso").prepend(riga);
+            //Aggiorno il totale //
+            totale += parseFloat(CookiesProdotto.get("quantita"+id))*parseFloat(CookiesProdotto.get("prezzo"+id));
+            totale = totale.toFixed(2);
+            $("#totale").text("Totale: "+totale+"€");
+        }
+    }
+});
+function remove(id){
+    //Elimino la riga//
+    let riga=document.getElementById("rigaCart"+id);
+    riga.remove();
+    //Aggiorno il numero di prodotti nel carrello//
+    numProdInCart--;
+    numProdInCart=CookiesProdotto.get("NProdotti");
+    //Aggiorno il totale //
+    totale -= parseFloat(CookiesProdotto.get("quantita"+id))*parseFloat(CookiesProdotto.get("prezzo"+id));
+    totale = totale.toFixed(2);
+    $("#totale").text("Totale: "+totale+"€");
+    //Elimino i cookies//
+    CookiesProdotto.remove("img"+id);
+    CookiesProdotto.remove("prezzo"+id);
+    CookiesProdotto.remove("nome"+id);
+    CookiesProdotto.remove("quantita"+id);
+    CookiesProdotto.remove("posArt"+id);
+
+}

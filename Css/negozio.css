@@ -1,71 +1,111 @@
+
 .grid-container {
     display:grid;
     grid-template-columns: auto auto;
 }
 body{
-    margin: 0;
+    margin: 0.5;
+    margin-top: 0;
     padding: 0;
 }
-/*  
-GRIGLA PER IL NEGOZIO E I PRODOTTI
- 
-.grid-container2{
-    display:grid; 
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    background-color: slateblue;
-}
-.grid-container2 > div {
-    background-color: rgba(165, 240, 240, 0.736);
-}
-*/
 .prod{
-    width: 11rem;
+    width: 9rem;
     translate:(50%, -50%);
 }
 
 html {
-    background-color: rgba(165, 240, 240, 0.736);
+    background-color: rgba(168, 236, 230, 0.266);
+    font-family: Granstander Clean;
 }
 
 /*div{
     border: 1px solid black
 }*/
-table{
-    border: 1px solid black
-}
+
 #tabella{
     width: 90%;
-    border: 1px solid rgb(255, 0, 0);
+    border: 1px solid rgba(18, 127, 236, 0.326);
 }
+table{
+    border:1px solid rgba(18, 127, 236, 0.326);
+    border-radius: 0.625rem;
 
-tr,
-td{
-    border: 1px solid black
+    
+}
+tr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px;
+    border:10px solid rgba(18, 127, 236, 0.326);
+    border-radius: 0.3125rem;
+
+}
+td,th{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(82, 182, 154, 0.40);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 0.3125rem;
 }
 
 .div-cont{
-    background-color: rgba(102, 255, 0, 0.736);
+    background-color: rgba(82, 182, 154, 0.69);
     width: 100%;
-    border: 1px solid rgb(255, 0,0);
-    padding: 00px;
+    padding: 0px;
     text-align: center;
+
 }
 
 .div-cont2{
-    background-color: rgba(255, 247, 0, 0.736);
+    background-color: rgba(118, 200, 147, 0.65);
+    
     width: 100%;
-    border: 1px solid rgb(255, 0,0);
-    padding: 00px;
+    padding: 0px;
     text-align: center;
+    text-shadow: rgba(0, 149, 255, 0.652) 0px 1px;	
 }
 
 .container{
     width: 100%;
-    border : 1px solid rgb(0, 0, 255);
 }
 
 .fianco{
     width: 0.5rem;
     display: inline;
+}
+.add{
+    background-color: rgba(194, 226, 249, 0.65);
+    color: #0067B1;
+    font-size: small;
+    text-align: center;
+    align-items: center;
+    font-family: Granstander Clean;
+    border: #0067B1 1px solid;
+    border-radius: 0.3125rem;
+}
+
+.add:hover{
+    background-color: #0067b1b7;
+    color:rgba(194, 226, 249, 0.85) ;
+}
+
+.add:active{
+    background-color: rgba(194, 226, 249, 0.85);
+}
+
+input[type=number]{
+    width: 3.5rem;
+    height: 1.400rem;
+    flex-shrink: 0;
+    background-color: rgba(194, 226, 249, 0.65);
+    font-family: Granstander Clean;
+    text-align: center;
+    align-items: center;
+    border: #0067B1 1px solid;
+    border-radius: 0.3125rem;
+}
+
+
+.prod:hover{
+    transform: scaleX(-1);
 }

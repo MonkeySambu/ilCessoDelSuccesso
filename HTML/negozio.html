@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="/Css/navbar.css">
     <link rel="stylesheet" href="/Css/negozio.css">
+    <link rel="stylesheet" href="../Css/font/font.css">
 
     <script src="../JavaScript/JQuery/jquery-3.7.1.slim.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
@@ -17,18 +18,20 @@
     <ul>
         <li><img src="../Assets/logout.png" id="logout"></li>
         <li><img src="../Assets/cart.png" id="cart"></li>
-        <li id="left"><img src="/Assets/logo.png" id="logo"></li>
+        <li class="left"><img src="../Assets/logo_uomo.png" id="logo"></li>
+        <li class="left"><h2>Il Cesso del SucCesso</h2></li>
+        
       </ul>
     <div class="grid-container">    
         <div class="div-cont2">    
                     <table class="container">
                         <tr>
-                            <th>Prodotto</th>
-                            <th>Descrizione</th>
-                            <th>Quantità</th>
+                            <th>PRODOTTO</th>
+                            <th>DESCRIZIONE</th>
+                            <th>QUANTITA'</th>
                         </tr> 
                         <tr>
-                            <td><img src="../Assets/prodotti/bagnoschiuma.png" class="prod" id="foto0"></td>
+                            <td><img src="../Assets/prodotti/0.png" class="prod" id="foto0"></td>
                             <td>
                                 <div id="nome0">Bagnoschiuma</div>
                                 <div>
@@ -37,146 +40,146 @@
                                 <div>Prezzo:<div id="prezzo0" class="fianco">1.45</div>€</div>
                             </td>
                             <td><form>
-                                <input type="number" name="quantity" min="0" max="25" id="quantita0" value="0">
-                                <input type="button" value="Aggiungi al carrello" id="add0"> 
+                                <input type="number" name="quantity" min="0" max="25" id="quantita0" >
+                                <button onclick="add(0)" class="add">Aggiungi al carello</button> 
                             </form></td>
                         </tr>
                         <tr>
-                            <td><img src="../Assets/prodotti/balsamo.png" class="prod" id="foto1"></td>
+                            <td><img src="../Assets/prodotti/1.png" class="prod" id="foto1"></td>
                             <td>
-                               <div id="nome1"> Balsamo </div>
+                               <div id="nome1">Balsamo</div>
                                <div>
                                     <div></div>
                                </div>
-                                <div>Prezzo:<div id="prezzo1" class="fianco">2.35</div> €</div>
+                                <div>Prezzo:<div id="prezzo1" class="fianco">2.35</div>€</div>
                             </td>
                             <td><form>
-                                <input type="number" name="quantity" min="0" max="25" id="quantita1" value="0">
-                                <input type="button" value="Aggiungi al carrello" id="add1"> 
+                                <input type="number" name="quantity" min="0" max="25" id="quantita1" >
+                                <button onclick="add(1)" class="add">Aggiungi al carello</button> 
                             </form></td>
                         </tr>
-                        <td><img src="../Assets/prodotti/shampoo.png" class="prod" id="foto2"></td>
+                        <td><img src="../Assets/prodotti/2.png" class="prod" id="foto2"></td>
                         <td>
-                            <div id="nome2"> Shampoo</div>
+                            <div id="nome2">Shampoo</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div> Prezzo:<div id="prezzo2" class="fianco">2.19€</div>€</div>
+                            <div> Prezzo:<div id="prezzo2" class="fianco">2.19</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita2" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add2"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita2">
+                            <button onclick="add(2)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
-                        <td><img src="../Assets/prodotti/carta_igienica.png" class="prod" id="foto3"></td>
+                        <td><img src="../Assets/prodotti/3.png" class="prod" id="foto3"></td>
                         <td>
-                            <div id="nome3"> Carta Igienica x10 </div>
+                            <div id="nome3">Carta Igienica x10</div>
                             <div>
                                  <div></div>
                             </div>
                             <div> Prezzo:<div id="prezzo3" class="fianco">4.50</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita3" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add3"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita3" >
+                                <button onclick="add(3)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
                     <tr>
-                        <td><img src="../Assets/prodotti/dentifricio.png" class="prod" id="foto4"></td>
+                        <td><img src="../Assets/prodotti/4.png" class="prod" id="foto4"></td>
                         <td>
-                            <div id="nome4"> Dentifricio </div>
+                            <div id="nome4">Dentifricio</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div> Prezzo:<div id="prezzo4" class="fianco">1.10€</div>€</div>
+                            <div> Prezzo:<div id="prezzo4" class="fianco">1.10</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita4" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add4"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita4">
+                                <button onclick="add(4)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
                     <tr>
-                        <td><img src="../Assets/prodotti/spazzolino.png" class="prod" id="foto5"></td>
+                        <td><img src="../Assets/prodotti/5.png" class="prod" id="foto5"></td>
                         <td>
-                            <div id="nome5"> Spazzolino </div>
+                            <div id="nome5">Spazzolino</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div> Prezzo:<div id="prezzo5" class="fianco">2.50€ </div>€</div>
+                            <div> Prezzo:<div id="prezzo5" class="fianco">2.50</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita5" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add5"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita5" >
+                                <button onclick="add(5)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
                     <tr>
-                        <td><img src="../Assets/prodotti/deodorante.png" class="prod" id="foto6"></td>
+                        <td><img src="../Assets/prodotti/6.png" class="prod" id="foto6"></td>
                         <td>
-                            <div id="nome6"> Deodorante </div>
+                            <div id="nome6">Deodorante</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div> Prezzo:<div id="prezzo6" class="fianco">3.10€ </div>€</div>
+                            <div> Prezzo:<div id="prezzo6" class="fianco">3.10</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita6" value="0">
-                            <input type="button" value="Aggiungi al carrello"id="add6"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita6" >
+                                <button onclick="add(6)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
                     <tr>
-                        <td><img src="../Assets/prodotti/detersivo.png" class="prod" id="foto7"></td>
+                        <td><img src="../Assets/prodotti/7.png" class="prod" id="foto7"></td>
                         <td>
-                            <div id="nome7"> Detersivo </div>
+                            <div id="nome7">Detersivo</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div> Prezzo:<div id="prezzo7" class="fianco">4.90€ </div>€</div>
+                            <div> Prezzo:<div id="prezzo7" class="fianco">4.90</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita7" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add7"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita7" >
+                                <button onclick="add(7)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>                  
                     <tr>
-                        <td><img src="../Assets/prodotti/sturacessi.png" class="prod" id="foto8"></td>
+                        <td><img src="../Assets/prodotti/8.png" class="prod" id="foto8"></td>
                         <td>
-                            <div id="nome8"> Stura cessi  </div>
+                            <div id="nome8">Stura cessi</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div></div> Prezzo:<div id="prezzo8" class="fianco">3.20€ </div>€</div>
+                            <div></div> Prezzo:<div id="prezzo8" class="fianco">3.20</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita8" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add8"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita8" >
+                                <button onclick="add(8)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>
                     <tr>
-                        <td><img src="../Assets/prodotti/colluttorio.png" class="prod" id="foto9"></td>
+                        <td><img src="../Assets/prodotti/9.png" class="prod" id="foto9"></td>
                         <td>
-                            <div id="nome9"> Colluttorio x3</div>
+                            <div id="nome9">Collutorio x3</div>
                             <div>
                                  <div></div>
                             </div>
-                            <div></div> Prezzo:<div id="prezzo9" class="fianco">9.90€ </div>€</div>
+                            <div></div> Prezzo:<div id="prezzo9" class="fianco">9.90</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita9" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add9"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita9" >
+                                <button onclick="add(9)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>           
                     <tr>
-                        <td><img src="../Assets/prodotti/preservativi.png" class="prod" id="foto10"></td>
+                        <td><img src="../Assets/prodotti/10.png" class="prod" id="foto10"></td>
                         <td>
                             <div id="nome10"> Preservativi </div>
                             <div>
                                  <div></div>
                             </div>
-                            <div></div> Prezzo:<div id="prezzo10" class="fianco">10.00€ </div>€</div>
+                            <div></div> Prezzo:<div id="prezzo10" class="fianco">10.00</div>€</div>
                         </td>
                         <td><form>
-                            <input type="number" name="quantity" min="0" max="25" id="quantita10" value="0">
-                            <input type="button" value="Aggiungi al carrello" id="add10"> 
+                            <input type="number" name="quantity" min="0" max="25" id="quantita10" >
+                                <button onclick="add(10)" class="add">Aggiungi al carello</button> 
                         </form></td>
                     </tr>               
                     </table>
@@ -188,6 +191,7 @@
                 </tr>                                    
             </table> 
             <table class="container" id="carrelloso">
+                <div id="x"></div>
             </table>
         </div>
     </div>
