@@ -1,21 +1,26 @@
-ul {
-    list-style-type: none;
-    background-color: #acedff;
-    
-    margin: 0; 
-    padding: 0;
-    overflow: hidden;
-    z-index: 0;
-  }
-  
-  li {
-    float: right;
-    z-index: 10;
-  }
-  
-  li a {
-    display: block;
-  }
-  .left{
-    float: left;
-  }
+h1{
+  display: inline;
+  text-align: center;
+}
+header{
+  text-align: center;
+  font-family: Granstander Clean;
+  font-size: 2rem;
+  text-shadow: rgba(0, 149, 255, 0.652) 0px 1px;
+}
+
+img{
+  margin: 0 auto;
+  padding: 0;
+}
+#logo{
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  padding: 0;
+}
+#pulsanti{
+  display: inline;
+  margin-left: 5rem;
+  padding: 0;
+  text-align: center;
+}

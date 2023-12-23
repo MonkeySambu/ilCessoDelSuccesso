@@ -2,6 +2,7 @@ var CookiesProdotto= CookiesNome.noConflict();
 const nPRODTot=10;
 var numProdInCart=0;
 let totale=0;
+var e=0;
 
 $(document).ready(function(){
     //CONTROLLO SE ESISTONO PRODOTTI NEL CARELLO//
@@ -40,9 +41,11 @@ function add(id) {
 
 $(document).ready(function(){
     //Creo il carello al caricamento della pagina//
+    CookiesProdotto.set("totale",0);
+    $("#totale").text("TOTALE CARRELLO: "+"0.00"+"€");
     for(var i=0;i<11;i++){
         let id = i;
-        if(CookiesProdotto.get("nome"+id)!=undefined) {
+        if(CookiesProdotto.get("nome"+id)!=undefined){
             //BR//
             var br = $("<br>");
             //immagine//
@@ -87,9 +90,14 @@ $(document).ready(function(){
             //Aggiungo la riga alla tabella//
             $("#carrelloso").prepend(riga);
             //Aggiorno il totale //
+            if(CookiesProdotto.get("totale")!=undefined)
+                totale = parseFloat(CookiesProdotto.get("totale"));
+            else
+                totale=0;
             totale += parseFloat(CookiesProdotto.get("quantita"+id))*parseFloat(CookiesProdotto.get("prezzo"+id));
             totale = totale.toFixed(2);
-            $("#totale").text("Totale: "+totale+"€");
+            CookiesProdotto.set("totale",totale, {path: "/"}, {sameSite: "strict"}, {expires: 1});
+            $("#totale").text("TOTALE CARRELLO: "+totale+"€");
         }
     }
 });
@@ -103,7 +111,8 @@ function remove(id){
     //Aggiorno il totale //
     totale -= parseFloat(CookiesProdotto.get("quantita"+id))*parseFloat(CookiesProdotto.get("prezzo"+id));
     totale = totale.toFixed(2);
-    $("#totale").text("Totale: "+totale+"€");
+    $("#totale").text("TOTALE CARRELLO: "+totale+"€");
+    CookiesProdotto.set("totale",totale, {path: "/"}, {sameSite: "strict"}, {expires: 1});
     //Elimino i cookies//
     CookiesProdotto.remove("img"+id);
     CookiesProdotto.remove("prezzo"+id);
@@ -112,3 +121,16 @@ function remove(id){
     CookiesProdotto.remove("posArt"+id);
 
 }
+$(document).ready(function(){
+    $("#cart").click(function(){
+        if(e==0){
+            //MOSTRA IL CARRELLO//
+            $("#CARRELLO-PROD").show();
+            e=1;
+        }else{
+            //NASCONDE IL CARRELLO//
+            $("#CARRELLO-PROD").hide();
+            e=0;
+        }
+    });
+});
